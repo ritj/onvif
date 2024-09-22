@@ -21,7 +21,7 @@ import (
 
 const bufSize = 8192
 
-//SendProbe to device
+// SendProbe to device
 func SendProbe(interfaceName string, scopes, types []string, namespaces map[string]string) ([]string, error) {
 	// Creating UUID Version 4
 	uuidV4 := uuid.Must(uuid.NewV4())
@@ -69,7 +69,9 @@ func sendUDPMulticast(msg string, interfaceName string) ([]string, error) {
 		if err := p.SetMulticastInterface(ifi); err != nil {
 			return nil, err
 		}
-		p.SetMulticastTTL(2)
+		if err := p.SetMulticastTTL(2); err != nil {
+			return nil, err
+		}
 		if _, err := p.WriteTo(data, nil, dst); err != nil {
 			return nil, err
 		}
