@@ -612,6 +612,8 @@ type PTZConfigurationExtension2 xsd.AnyType
 type MetadataConfiguration struct {
 	ConfigurationEntity
 	CompressionType              string                         `xml:"CompressionType,attr"`
+	GeoLocation                  bool                           `xml:"GeoLocation,attr"`
+	ShapePolygon                 bool                           `xml:"ShapePolygon,attr"`
 	PTZStatus                    PTZFilter                      `xml:"PTZStatus"`
 	Events                       EventSubscription              `xml:"Events"`
 	Analytics                    xsd.Boolean                    `xml:"Analytics"`
