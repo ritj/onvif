@@ -255,7 +255,7 @@ type GetVideoSourceConfigurations struct {
 }
 
 type GetVideoSourceConfigurationsResponse struct {
-	Configurations onvif.VideoSourceConfiguration
+	Configurations onvif.VideoSourceConfiguration `xml:"Configurations"`
 }
 
 type GetVideoEncoderConfigurations struct {
